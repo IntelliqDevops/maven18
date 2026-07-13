@@ -1,7 +1,9 @@
 @Library('mylibrary')_
 pipeline
 {
-    agent any
+    agent {
+       label 'myslave'
+    }
     stages
     {
         stage('Download_Loans')
