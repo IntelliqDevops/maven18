@@ -1,6 +1,8 @@
 pipeline
 {
-    agent any
+    agent {
+         label 'built-in'
+    }
     stages
     {
         stage('Download_Master')
