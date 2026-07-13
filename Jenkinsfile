@@ -3,28 +3,28 @@ pipeline
     agent any
     stages
     {
-        stage('Download')
+        stage('Download_Master')
         {
             steps
             {
                 git 'https://github.com/IntelliqDevops/maven.git'
             }
         }
-        stage('Build')
+        stage('Build_Master')
         {
             steps
             {
                 sh 'mvn package'
             }
         }
-        stage('Deployment')
+        stage('Deployment_Master')
         {
             steps
             {
                 sh 'scp /var/lib/jenkins/workspace/DeclarativePipeline2/webapp/target/webapp.war ubuntu@172.31.9.45:/var/lib/tomcat10/webapps/test1.war'
             }
         }
-        stage('Testing')
+        stage('Testing_Master')
         {
             steps
             {
@@ -32,7 +32,7 @@ pipeline
                 sh 'java -jar /var/lib/jenkins/workspace/DeclarativePipeline2/testing.jar'
             }
         }
-        stage('Delivery')
+        stage('Delivery_Master')
         {
             steps
             {
